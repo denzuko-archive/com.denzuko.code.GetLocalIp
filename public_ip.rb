@@ -1,4 +1,4 @@
-%w{rubygems sinatra haml}.each do |lib| require lib; end
+%w{rubygems sinatra haml}.each { |lib| require lib }
 
 set :app_file, __FILE__
 set :root, File.dirname(__FILE__)
