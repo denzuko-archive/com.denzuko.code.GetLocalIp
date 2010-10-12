@@ -1,28 +1,22 @@
 %w{rubygems sinatra haml}.each { |lib| require lib }
 
-set :app_file, __FILE__
-set :root, File.dirname(__FILE__)
-set :views, 'views'
-set :public, 'public'
-
 get '/stylesheets/:name.css' do
   content_type 'text/css', :charset => 'utf-8'
   sass :"stylesheets/#{params[:name]}"
-end
-
-before
-  content_type 'text/html', :charset => 'utf-8'
 end
 
 get '/' do
   raw = @request.env["REMOTE_ADDR"]
   raw.match(/^(\d+\.\d+\.\d+),?/)
   @ip = $1
+
+  content_type 'text/html', :charset => 'utf-8'
   haml :index
 end
 
 __END__
-@@ site.css
+@@ stylesheets/site.css
+
 body
   :background white 
   :color black
