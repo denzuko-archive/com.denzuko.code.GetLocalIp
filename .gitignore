@@ -1,0 +1,7 @@
+.DS_Store
+*~
+*.swp
+tmp/*
+.bundle
+.sass-cache
+*.tmproj

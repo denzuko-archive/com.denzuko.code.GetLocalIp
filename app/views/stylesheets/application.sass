@@ -1,0 +1,32 @@
+@import blueprint/reset
+@import compass/utiles
+
+=base-font
+  :color #0d0d0d
+  :font 13px Arial, Helvetica, sans-serif
+
+=base-anchor
+  :color #36c
+  :text-decoration none
+
+a
+  +base-anchor
+  &:hover
+    +base-anchor
+  &:focus, &:active
+    :outline none
+  &:visited
+
+html, body
+  :height 100%
+  :margin 0 0 1px 0
+  :padding 0
+
+body
+  +base-font
+  :background #fff
+  :padding 50px 20px 20px 20px
+  :text-align center
+  h1
+    :font 40px bold
+    :text-shadow 2px 2px 2px #000
