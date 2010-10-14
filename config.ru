@@ -5,9 +5,4 @@ require 'haml/more'
 
 require 'application'
 
-use Rack::Cache,
-  :verbose     => true,
-  :metastore   => 'heap:/',
-  :entitystore => 'heap:/'
-
 run MyApp

@@ -1,4 +1,12 @@
 class MyApp < Sinatra::Base
+  
+  $cache = 'heap:/'
+
+  use Rack::Cache,
+    :verbose     => true,
+    :metastore   => $cache,
+    :entitystore => $cache
+
   configure do
     set :root,     Proc.new { File.expand_path(File.dirname(__FILE__)) }
     set :app_file, Proc.new { File.join(root, __FILE__) }
@@ -10,18 +18,18 @@ class MyApp < Sinatra::Base
 
     Compass.configuration do |config|
       config.output_style = :expanded
+      config.environment  = Sinatra::Application.environment
       config.project_path = Sinatra::Application.root
       config.sass_path    = Proc.new { File.join(Sinatra::Application.views,  'stylesheets') }
       config.css_path     = Proc.new { File.join(Sinatra::Application.public, 'stylesheets') }
       config.images_path  = Proc.new { File.join(Sinatra::Application.public, 'images') }
-      config.environment  = Sinatra::Application.environment
       config.http_path    = '/'
       config.http_images_path      = "/images"
       config.http_stylesheets_path = "/stylesheets"
       config.relative_assets       = true
     end
   end
-
+  
   helpers Haml::More
 
   before do
