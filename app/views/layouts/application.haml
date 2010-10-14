@@ -8,11 +8,18 @@
     %link{:rel=>'stylesheet', :href=>"/stylesheets/application.css", :type=>'text/css', :media=>'screen,projection'}/
     %script{:type=>'text/javascript', :src=>'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'}
     %script{:type=>'text/javascript', :src=>'/javascripts/site.js'}
+    :coffee_script
+      alert "#{@title}"
+      $('document').ready ->
+          hostname = window.location.hostname
+          $("a[href^=http]").not("a[href*='"+hostname+"']").addClass('link external').attr('target','_blank')
   %body
     #header
       %h1= @title
     #container
       = yield
     #footer
+      %p
+        %a{:href => "/source"} view source
       %p
         Copyright &copy;2010 CompuTEK Industries, LLC.

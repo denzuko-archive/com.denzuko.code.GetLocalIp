@@ -1,6 +1,8 @@
-%w{rubygems compass sinatra haml}.each { |lib| require lib }
+%w(rubygems compass sinatra).each { |lib| require lib }
 require 'bundler/setup'
 require 'rack/cache'
+require 'haml/more'
+
 require 'application'
 
 use Rack::Cache,
@@ -8,4 +10,4 @@ use Rack::Cache,
   :metastore   => 'heap:/',
   :entitystore => 'heap:/'
 
-run Sinatra::Application
+run MyApp

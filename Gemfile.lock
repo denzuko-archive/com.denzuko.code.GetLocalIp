@@ -1,11 +1,17 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    backports (1.18.2)
     compass (0.10.5)
       haml (>= 3.0.4)
     daemons (1.1.0)
     eventmachine (0.12.10)
     haml (3.0.21)
+    haml-more (0.5.1)
+      haml (>= 2.2.20)
+      monkey-lib (~> 0.5.2)
+    monkey-lib (0.5.4)
+      backports
     rack (1.2.1)
     rack-cache (0.5.3)
       rack (>= 0.4)
@@ -23,6 +29,7 @@ DEPENDENCIES
   bundler
   compass
   haml (= 3.0.21)
+  haml-more
   rack (~> 1.1)
   rack-cache
   sinatra (= 1.0)

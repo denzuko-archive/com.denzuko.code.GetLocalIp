@@ -1,0 +1,7 @@
+%p
+  %a{:href => "/"} see in action
+
+- Dir["**/*.{rb,haml,sass}"].sort.each do |file|
+  %p
+    %h3= file
+    %pre= File.read file
